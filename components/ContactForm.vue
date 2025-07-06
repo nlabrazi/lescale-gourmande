@@ -102,42 +102,35 @@ const form = reactive({
 })
 
 const submitForm = async () => {
-  const token = import.meta.env.ESCALE_TELEGRAM_TOKEN;
-  const chatId = import.meta.env.ESCALE_TELEGRAM_CHAT_ID;
-
-  const message = `
-<b>📩 Nouvelle demande de devis</b>
-
-👤 <b>Nom :</b> ${form.name}
-📧 <b>Email :</b> ${form.email}
-📞 <b>Téléphone :</b> ${form.phone || 'Non renseigné'}
-📅 <b>Type d’événement :</b> ${form.eventType}
-👥 <b>Statut :</b> ${form.status}
-👪 <b>Nombre d’invités :</b> ${form.guests}
-🍽 <b>Spécialité :</b> ${form.theme}
-🔁 <b>Être recontacté :</b> ${form.callback ? 'Oui' : 'Non'}
-📝 <b>Message :</b> ${form.message || '—'}
-  `.trim();
-
   try {
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    const res = await fetch('/api/send-quote', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message,
-        parse_mode: 'HTML'
-      })
-    });
-    alert('Message envoyé avec succès');
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    })
+    const data = await res.json()
+    if (data.success) {
+      alert('Message envoyé avec succès')
+      // Reset du formulaire après succès (optionnel)
+      form.name = ''
+      form.email = ''
+      form.phone = ''
+      form.eventType = ''
+      form.status = ''
+      form.guests = ''
+      form.theme = ''
+      form.callback = false
+      form.message = ''
+    } else {
+      alert('Erreur lors de l’envoi')
+    }
   } catch (error) {
-    console.error('Erreur envoi Telegram :', error);
-    alert('Erreur lors de l’envoi');
+    console.error('Erreur envoi Telegram :', error)
+    alert('Erreur lors de l’envoi')
   }
-};
+}
 </script>
+
 
 
 <style>

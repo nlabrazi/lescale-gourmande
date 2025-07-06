@@ -10,7 +10,7 @@
 
       <!-- Desktop menu -->
       <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
-        <NuxtLink v-for="(link, i) in links" :key="i" :to="link.to"
+        <NuxtLink v-for="(link, i) in navLinks" :key="i" :to="link.to"
           class="relative transition-colors duration-300 ease-in-out" @mouseenter="hovered = i"
           @mouseleave="hovered = null">
           {{ link.label }}
@@ -32,7 +32,7 @@
     <transition name="slide-fade">
       <div v-if="isOpen"
         class="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200 flex flex-col items-center space-y-4 py-8 z-40">
-        <NuxtLink v-for="(link, i) in links" :key="i" :to="link.to"
+        <NuxtLink v-for="(link, i) in navLinks" :key="i" :to="link.to"
           class="text-lg font-medium transition-colors duration-300 relative" @click="closeMenu">
           {{ link.label }}
           <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out"
@@ -45,9 +45,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useSiteLinks } from '@/composables/useSiteLinks'
+
 const hovered = ref(null)
 const isOpen = ref(false)
-const links = useNavLinks()
+const navLinks = useSiteLinks().filter(link => link.showInNav)
 
 function toggleMenu() {
   isOpen.value = !isOpen.value

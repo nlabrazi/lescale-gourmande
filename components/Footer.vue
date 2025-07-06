@@ -71,6 +71,6 @@
 </template>
 
 <script setup>
-import { useFooterLinks } from '@/composables/useFooterLinks'
-const footerLinks = useFooterLinks()
+import { useSiteLinks } from '@/composables/useSiteLinks'
+const footerLinks = useSiteLinks().filter(l => l.showInFooter)
 </script>
