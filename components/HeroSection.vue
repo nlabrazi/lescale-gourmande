@@ -17,7 +17,7 @@
         Créons ensemble l'événement qui vous ressemble
       </p>
       <NuxtLink to="/contact-page">
-        <button class="mt-6 px-6 py-3 border border-white text-white hover:bg-white hover:text-blue transition">
+        <button class="mt-6 px-6 py-3 border border-white text-white hover:bg-white hover:text-gray-800 transition">
           Demander un devis
         </button>
       </NuxtLink>

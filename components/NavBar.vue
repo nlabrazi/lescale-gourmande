@@ -10,13 +10,14 @@
 
       <!-- Desktop menu -->
       <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
-        <NuxtLink v-for="(link, i) in navLinks" :key="i" :to="link.to"
-          class="relative transition-colors duration-300 ease-in-out" @mouseenter="hovered = i"
-          @mouseleave="hovered = null">
-          {{ link.label }}
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out"
-            :class="{ 'w-full': hovered === i }"></span>
-        </NuxtLink>
+        <span v-for="(link, i) in navLinks" :key="i" class="relative group inline-block">
+          <NuxtLink :to="link.to"
+            class="text-gray-800 hover:text-yellow-400 transition-colors duration-300 ease-in-out">
+            {{ link.label }}
+            <span
+              class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+          </NuxtLink>
+        </span>
       </div>
 
       <!-- Burger icon mobile -->
@@ -25,37 +26,40 @@
         @click="toggleMenu" aria-label="Menu">
         <FontAwesomeIcon :icon="isOpen ? 'times' : 'bars'" class="text-2xl text-gray-800" />
       </button>
-
     </div>
 
     <!-- Mobile menu, slide down/over with animation -->
     <transition name="slide-fade">
       <div v-if="isOpen"
         class="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200 flex flex-col items-center space-y-4 py-8 z-40">
-        <NuxtLink v-for="(link, i) in navLinks" :key="i" :to="link.to"
-          class="text-lg font-medium transition-colors duration-300 relative" @click="closeMenu">
-          {{ link.label }}
-          <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out"
-            :class="{ 'w-full': hovered === i }"></span>
-        </NuxtLink>
+        <span v-for="(link, i) in navLinks" :key="i" class="relative group inline-block">
+          <NuxtLink :to="link.to"
+            class="text-lg font-medium text-gray-800 hover:text-yellow-400 transition-colors duration-300 ease-in-out inline-block px-2"
+            @click="closeMenu">
+            {{ link.label }}
+            <span
+              class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+          </NuxtLink>
+        </span>
       </div>
     </transition>
+
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useSiteLinks } from '@/composables/useSiteLinks'
+import { ref } from "vue";
+import { useSiteLinks } from "@/composables/useSiteLinks";
 
-const hovered = ref(null)
-const isOpen = ref(false)
-const navLinks = useSiteLinks().filter(link => link.showInNav)
+const hovered = ref(null);
+const isOpen = ref(false);
+const navLinks = useSiteLinks().filter((link) => link.showInNav);
 
 function toggleMenu() {
-  isOpen.value = !isOpen.value
+  isOpen.value = !isOpen.value;
 }
 function closeMenu() {
-  isOpen.value = false
+  isOpen.value = false;
 }
 </script>
 

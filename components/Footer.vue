@@ -29,9 +29,8 @@
             </span>
           </li>
         </ul>
-
       </div>
-      <!-- Colonne 3 : Contact (identique à avant) -->
+      <!-- Colonne 3 : Contact -->
       <div>
         <h4 class="text-lg font-semibold mb-4">Contact</h4>
         <ul class="text-sm space-y-2 text-gray-300">
@@ -71,6 +70,6 @@
 </template>
 
 <script setup>
-import { useSiteLinks } from '@/composables/useSiteLinks'
-const footerLinks = useSiteLinks().filter(l => l.showInFooter)
+import { useSiteLinks } from "@/composables/useSiteLinks";
+const footerLinks = useSiteLinks().filter((l) => l.showInFooter);
 </script>

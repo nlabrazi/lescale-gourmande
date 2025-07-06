@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "biome:check": "biome check .",
+    "biome:format": "biome format . --write",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
