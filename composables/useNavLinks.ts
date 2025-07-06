@@ -1,7 +1,13 @@
-export const useNavLinks = () => [
-  { label: 'Accueil', href: '/', isNuxtLink: false },
-  { label: 'Événementiel', href: '/', isNuxtLink: false },
-  { label: 'Notre histoire', href: '/about-page', isNuxtLink: false },
-  { label: 'Sur-mesure', href: '/', isNuxtLink: false },
-  { label: 'Contact', href: '/contact-page', isNuxtLink: false }
-]
+type NavLink = {
+  label: string;
+  to: string;
+  isNuxtLink?: boolean;
+};
+
+export const useNavLinks = (): NavLink[] => [
+  { label: 'Accueil', to: '/', isNuxtLink: true },
+  { label: 'Événementiel', to: '/', isNuxtLink: true },
+  { label: 'Notre histoire', to: '/about-page', isNuxtLink: true },
+  { label: 'Sur-mesure', to: '/', isNuxtLink: true },
+  { label: 'Contact', to: '/contact-page', isNuxtLink: true }
+];
