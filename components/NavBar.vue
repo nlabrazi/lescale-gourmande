@@ -10,8 +10,7 @@
       <div class="flex items-center">
         <div class="desktop-nav-menu items-center space-x-6 text-sm font-medium">
           <span v-for="(link, i) in navLinks" :key="i" class="relative group inline-block">
-            <NuxtLink :to="link.to"
-              class="text-gray-800 hover:text-yellow-400 transition-colors duration-300 ease-in-out">
+            <NuxtLink :to="link.to" class="text-gray-800 transition-colors duration-300 ease-in-out">
               {{ link.label }}
               <span
                 class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
@@ -32,7 +31,7 @@
         class="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200 flex flex-col items-center space-y-4 py-8 z-40">
         <span v-for="(link, i) in navLinks" :key="i" class="relative group inline-block">
           <NuxtLink :to="link.to"
-            class="text-lg font-medium text-gray-800 hover:text-yellow-400 transition-colors duration-300 ease-in-out inline-block px-2"
+            class="text-lg font-medium text-gray-800 transition-colors duration-300 ease-in-out inline-block px-2"
             @click="closeMenu">
             {{ link.label }}
             <span

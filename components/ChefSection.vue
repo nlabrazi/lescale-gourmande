@@ -4,8 +4,8 @@
       <!-- Image animée -->
       <Motion tag="div" :initial="{ opacity: 0, x: -50 }" :enter="{ opacity: 1, x: 0, transition: { duration: 0.8 } }"
         class="w-full md:w-1/2">
-        <img src="https://images.unsplash.com/photo-1577219492769-b63a779fac28?auto=format&fit=crop&w=800&q=80"
-          alt="Chef L'escale gourmande" class="rounded-2xl shadow-xl w-full object-cover h-[500px]" />
+        <video autoplay loop src="@/assets/video/our-chef.mp4"
+          class="rounded-2xl shadow-xl w-full object-cover h-[500px]"></video>
       </Motion>
       <!-- Texte animé -->
       <Motion tag="div" :initial="{ opacity: 0, x: 50 }"

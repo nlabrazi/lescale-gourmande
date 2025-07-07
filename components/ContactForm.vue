@@ -77,7 +77,7 @@
 
         <div class="text-center pt-4">
           <button type="submit" @click.prevent="submitForm"
-            class="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+            class="bg-gray-800 hover:bg-yellow-400 hover:text-gray-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 cursor-pointer">
             Envoyer
           </button>
         </div>

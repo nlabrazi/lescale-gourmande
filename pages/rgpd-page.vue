@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white text-gray-800 py-20 px-6 max-w-4xl mx-auto leading-relaxed">
+  <section class="mt-15 bg-white text-gray-800 py-20 px-6 max-w-4xl mx-auto leading-relaxed">
     <h1 class="text-3xl font-bold mb-6">Politique de confidentialité</h1>
 
     <p class="mb-4">

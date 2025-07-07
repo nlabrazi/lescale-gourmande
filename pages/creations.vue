@@ -1,54 +1,64 @@
 <template>
-  <section class="max-w-7xl mx-auto py-16 px-4">
-    <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4 text-center">Our Creations</h1>
-    <p class="text-center text-gray-500 max-w-2xl mx-auto mb-10">
-      Discover a selection of our finest achievements: weddings, birthdays, company dinners, and private events. <br>
-      L’escale Gourmande tailors each experience to your needs and makes every event unique!
-    </p>
+  <section class="mt-25 py-5 px-5 max-w-7xl mx-auto bg-gray-100 rounded-lg">
+    <!-- Titre animé -->
+    <Motion tag="h1" :initial="{ opacity: 0, y: 40 }" :enter="{ opacity: 1, y: 0, transition: { duration: 0.7 } }"
+      class="text-3xl md:text-5xl font-bold text-gray-800 mb-4 text-center">
+      Nos créations
+    </Motion>
+    <Motion tag="p" :initial="{ opacity: 0, y: 40 }"
+      :enter="{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } }"
+      class="text-center text-gray-600 max-w-2xl mx-auto mb-10 text-lg">
+      Découvrez quelques-unes de nos plus belles réalisations : mariages, anniversaires, dîners d’entreprise et
+      événements privés.
+      <br />
+      <span class="font-medium text-gray-800">L’escale gourmande</span> personnalise chaque prestation pour rendre votre
+      événement vraiment unique !
+    </Motion>
 
+    <!-- Cartes animées -->
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Exemple carte 1 -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-          alt="Wedding Buffet" class="w-full h-48 object-cover group-hover:scale-105 transition" />
+      <Motion v-for="(creation, i) in creations" :key="i" :initial="{ opacity: 0, y: 40 }"
+        :enter="{ opacity: 1, y: 0, transition: { duration: 0.7, delay: i * 0.18 } }"
+        class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col group hover:scale-[1.08] hover:shadow-2xl transition-transform duration-500">
+        <video v-if="creation.video" :src="creation.video" :alt="creation.alt" class="w-full h-48 object-cover" autoplay
+          loop muted playsinline></video>
         <div class="p-5 flex-1 flex flex-col">
-          <h2 class="text-xl font-semibold mb-2 text-gray-800">Wedding: Sarah & Romain</h2>
-          <p class="text-gray-500 mb-4 flex-1">
-            A refined cocktail dinner for 100 guests in Paris. Custom dessert buffet, floral decoration and attentive
-            service.
-          </p>
-          <span class="text-xs text-yellow-600 font-medium">Wedding</span>
+          <h2 class="text-xl font-semibold mb-2 text-gray-800">{{ creation.title }}</h2>
+          <p class="text-gray-600 mb-4 flex-1">{{ creation.text }}</p>
+          <span class="inline-block text-xs px-3 py-1 rounded-full font-semibold" :class="creation.tagColor">
+            {{ creation.tag }}
+          </span>
         </div>
-      </div>
-      <!-- Exemple carte 2 -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1457180147885-7c88d5ba2aab?auto=format&fit=crop&w=600&q=80"
-          alt="Birthday Dinner" class="w-full h-48 object-cover group-hover:scale-105 transition" />
-        <div class="p-5 flex-1 flex flex-col">
-          <h2 class="text-xl font-semibold mb-2 text-gray-800">Birthday: Emma, 30 years</h2>
-          <p class="text-gray-500 mb-4 flex-1">
-            A Mediterranean feast at home for 20 friends. Tapas, sweets and personalized cake by L’escale Gourmande.
-          </p>
-          <span class="text-xs text-yellow-600 font-medium">Birthday</span>
-        </div>
-      </div>
-      <!-- Exemple carte 3 -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col group hover:shadow-xl transition">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
-          alt="Corporate Lunch" class="w-full h-48 object-cover group-hover:scale-105 transition" />
-        <div class="p-5 flex-1 flex flex-col">
-          <h2 class="text-xl font-semibold mb-2 text-gray-800">Corporate Lunch: Capgemini</h2>
-          <p class="text-gray-500 mb-4 flex-1">
-            Warm and healthy lunch for a company seminar. Vegetarian and vegan options, fresh juices, and beautiful
-            presentation.
-          </p>
-          <span class="text-xs text-yellow-600 font-medium">Company Event</span>
-        </div>
-      </div>
-      <!-- Ajoute d'autres cartes ici... -->
+      </Motion>
     </div>
   </section>
 </template>
 
 <script setup>
+const creations = [
+  {
+    title: "Mariage : Sarah & Romain",
+    text: "Cocktail dînatoire raffiné pour 100 invités à Paris. Buffet de desserts sur mesure, décoration florale et service attentionné.",
+    tag: "Mariage",
+    tagColor: "bg-pink-100 text-pink-700",
+    video: "https://videos.pexels.com/video-files/20203976/20203976-uhd_2560_1440_30fps.mp4",
+    alt: "Buffet de mariage",
+  },
+  {
+    title: "Anniversaire : Emma, 30 ans",
+    text: "Soirée méditerranéenne à domicile pour 20 amis : tapas, douceurs et gâteau personnalisé signés L’escale gourmande.",
+    tag: "Anniversaire",
+    tagColor: "bg-yellow-100 text-yellow-700",
+    video: "https://videos.pexels.com/video-files/6206264/6206264-hd_1920_1080_25fps.mp4",
+    alt: "Dîner d'anniversaire",
+  },
+  {
+    title: "Déjeuner d'entreprise : Capgemini",
+    text: "Déjeuner convivial et healthy pour un séminaire d’équipe. Options végétariennes, jus frais, présentation élégante.",
+    tag: "Entreprise",
+    tagColor: "bg-blue-100 text-blue-700",
+    video: "https://videos.pexels.com/video-files/4170293/4170293-uhd_2732_1440_24fps.mp4",
+    alt: "Déjeuner d'entreprise",
+  },
+]
 </script>
