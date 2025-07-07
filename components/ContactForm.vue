@@ -131,8 +131,6 @@ const submitForm = async () => {
 };
 </script>
 
-
-
 <style>
 .input-field {
   width: 100%;
