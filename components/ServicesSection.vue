@@ -23,25 +23,26 @@
 </template>
 
 <script setup>
-
-
 const services = [
   {
     title: "Cocktails & Réceptions",
     text: "Des prestations raffinées pour vos événements privés ou professionnels.",
-    image: "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Buffets sur-mesure",
     text: "Une cuisine élégante, créative et adaptée à toutes vos envies.",
-    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Services en entreprise",
     text: "Des formules adaptées à vos besoins pour séminaires, conférences, repas.",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
   },
-]
+];
 </script>
 
 <style scoped>

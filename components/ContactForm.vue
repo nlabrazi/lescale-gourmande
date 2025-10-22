@@ -77,7 +77,7 @@
 
         <div class="text-center pt-4">
           <button type="submit" @click.prevent="submitForm"
-            class="bg-gray-800 hover:bg-gray-900 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+            class="bg-gray-800 hover:bg-yellow-400 hover:text-gray-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 cursor-pointer">
             Envoyer
           </button>
         </div>
@@ -87,58 +87,49 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive } from "vue";
 
 const form = reactive({
-  name: '',
-  email: '',
-  phone: '',
-  eventType: '',
-  status: '',
-  guests: '',
-  theme: '',
+  name: "",
+  email: "",
+  phone: "",
+  eventType: "",
+  status: "",
+  guests: "",
+  theme: "",
   callback: false,
-  message: ''
-})
+  message: "",
+});
 
 const submitForm = async () => {
-  const token = import.meta.env.ESCALE_TELEGRAM_TOKEN;
-  const chatId = import.meta.env.ESCALE_TELEGRAM_CHAT_ID;
-
-  const message = `
-<b>📩 Nouvelle demande de devis</b>
-
-👤 <b>Nom :</b> ${form.name}
-📧 <b>Email :</b> ${form.email}
-📞 <b>Téléphone :</b> ${form.phone || 'Non renseigné'}
-📅 <b>Type d’événement :</b> ${form.eventType}
-👥 <b>Statut :</b> ${form.status}
-👪 <b>Nombre d’invités :</b> ${form.guests}
-🍽 <b>Spécialité :</b> ${form.theme}
-🔁 <b>Être recontacté :</b> ${form.callback ? 'Oui' : 'Non'}
-📝 <b>Message :</b> ${form.message || '—'}
-  `.trim();
-
   try {
-    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message,
-        parse_mode: 'HTML'
-      })
+    const res = await fetch("/api/send-quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
     });
-    alert('Message envoyé avec succès');
+    const data = await res.json();
+    if (data.success) {
+      alert("Message envoyé avec succès");
+      // Reset du formulaire après succès (optionnel)
+      form.name = "";
+      form.email = "";
+      form.phone = "";
+      form.eventType = "";
+      form.status = "";
+      form.guests = "";
+      form.theme = "";
+      form.callback = false;
+      form.message = "";
+    } else {
+      alert("Erreur lors de l’envoi");
+    }
   } catch (error) {
-    console.error('Erreur envoi Telegram :', error);
-    alert('Erreur lors de l’envoi');
+    console.error("Erreur envoi Telegram :", error);
+    alert("Erreur lors de l’envoi");
   }
 };
 </script>
-
 
 <style>
 .input-field {

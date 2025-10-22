@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24 px-6 max-w-5xl mx-auto text-gray-800">
+  <section class="mt-25 py-5 px-5 max-w-5xl mx-auto text-gray-800 bg-gray-100 rounded-lg">
     <h1 class="text-4xl font-bold text-center mb-12">Qui sommes-nous</h1>
 
     <div class="space-y-8 text-lg leading-relaxed">

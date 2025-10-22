@@ -8,20 +8,29 @@
           Traiteur pour particuliers et entreprises. Des prestations sur mesure pour vos événements culinaires.
         </p>
       </div>
-
       <!-- Colonne 2 : Liens -->
       <div>
         <h4 class="text-lg font-semibold mb-4">Navigation</h4>
         <ul class="space-y-2 text-sm">
-          <li v-for="(link, i) in links" :key="i">
-            <component :is="link.isNuxtLink ? 'NuxtLink' : 'a'" :to="link.to" :href="link.href"
-              class="hover:text-yellow-400 transition" v-bind="link.isNuxtLink ? {} : { href: link.href }">{{ link.label
-              }}</component>
+          <li v-for="(link, i) in footerLinks" :key="i">
+            <span class="relative group inline-block">
+              <NuxtLink v-if="link.isNuxtLink" :to="link.to"
+                class="text-gray-300 hover:text-yellow-400 transition-colors duration-300 ease-in-out">
+                {{ link.label }}
+                <span
+                  class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              </NuxtLink>
+              <a v-else :href="link.href" :target="link.target" :rel="link.rel"
+                class="text-gray-300 hover:text-yellow-400 transition-colors duration-300 ease-in-out">
+                {{ link.label }}
+                <span
+                  class="absolute left-0 -bottom-1 w-0 h-0.5 bg-yellow-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+              </a>
+            </span>
           </li>
         </ul>
       </div>
-
-      <!-- Colonne 3 : Contact (identique à avant) -->
+      <!-- Colonne 3 : Contact -->
       <div>
         <h4 class="text-lg font-semibold mb-4">Contact</h4>
         <ul class="text-sm space-y-2 text-gray-300">
@@ -48,7 +57,6 @@
         </ul>
       </div>
     </div>
-
     <!-- Footer bas -->
     <div class="text-center text-xs text-gray-500 mt-2 space-x-3">
       &copy; {{ new Date().getFullYear() }} L’escale gourmande. Tous droits réservés.
@@ -62,6 +70,6 @@
 </template>
 
 <script setup>
-// Exemple réutilisable si tu veux mutualiser avec la navbar
-const links = useNavLinks()
+import { useSiteLinks } from "@/composables/useSiteLinks";
+const footerLinks = useSiteLinks().filter((l) => l.showInFooter);
 </script>
