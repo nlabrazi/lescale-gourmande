@@ -39,7 +39,7 @@
 # 🥗 About The Project
 
 <p align="center">
-  <a href="https://lescale-gourmande.netlify.app">
+  <a href="https://lescale-gourmande.nabster.dev">
     <img src="assets/image/screenshot.png" alt="Screenshot" width="100%" height="400" />
   </a>
 </p>
@@ -51,7 +51,7 @@
 
 - 🍽️ Design élégant & responsive
 - 📱 Frontend en **Vue 3 / Nuxt 3** avec **Tailwind CSS**
-- 🚀 Déploiement **Netlify**
+- 🚀 Déploiement **OVH**
 - 📩 Formulaires de contact et demande de devis, notifications instantanées (email + Telegram)
 - 🧑‍🍳 Présentation des services, chef, témoignages, contact, etc.
 
@@ -76,14 +76,13 @@
 * [![Vue.js][Vue.js]][Vue-url]
 * [![Nuxt.js][Nuxt.js]][Nuxt-url]
 * [![TailwindCSS][TailwindCSS.js]][TailwindCSS-url]
-* [![Netlify][Netlify.com]][Netlify-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 # ✅ Getting Started
 
-Ce projet utilise **Nuxt 3** (Vue 3), TailwindCSS et se déploie facilement sur Netlify.
+Ce projet utilise **Nuxt 3** (Vue 3), TailwindCSS et se déploie facilement sur OVH.
 
 ### 💻 Installation
 

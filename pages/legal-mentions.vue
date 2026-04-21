@@ -24,10 +24,13 @@
     <h2 class="text-xl font-semibold mt-8 mb-2">Hébergeur</h2>
     <p>
       Le site est hébergé par :<br />
-      <strong>Netlify, Inc.</strong><br />
-      2325 3rd Street, Suite 296<br />
-      San Francisco, California 94107 — USA<br />
-      Site : <a href="https://www.netlify.com/" target="_blank" class="text-blue-600 underline">www.netlify.com</a>
+      <strong>OVH SAS</strong><br />
+      2 rue Kellermann<br />
+      59100 Roubaix — France<br />
+      Site :
+      <a href="https://www.ovhcloud.com/fr/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">
+        www.ovhcloud.com
+      </a>
     </p>
 
     <h2 class="text-xl font-semibold mt-8 mb-2">Propriété intellectuelle</h2>
