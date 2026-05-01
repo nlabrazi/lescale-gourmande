@@ -71,5 +71,6 @@
 
 <script setup>
 import { useSiteLinks } from "@/composables/useSiteLinks";
+
 const footerLinks = useSiteLinks().filter((l) => l.showInFooter);
 </script>

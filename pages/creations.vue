@@ -60,5 +60,5 @@ const creations = [
     video: "https://videos.pexels.com/video-files/4170293/4170293-uhd_2732_1440_24fps.mp4",
     alt: "Déjeuner d'entreprise",
   },
-]
+];
 </script>

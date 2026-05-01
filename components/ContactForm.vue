@@ -108,6 +108,12 @@ const submitForm = async () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
     });
+
+    if (!res.ok) {
+      alert("Erreur lors de l’envoi");
+      return;
+    }
+
     const data = await res.json();
     if (data.success) {
       alert("Message envoyé avec succès");
@@ -124,8 +130,7 @@ const submitForm = async () => {
     } else {
       alert("Erreur lors de l’envoi");
     }
-  } catch (error) {
-    console.error("Erreur envoi Telegram :", error);
+  } catch {
     alert("Erreur lors de l’envoi");
   }
 };
