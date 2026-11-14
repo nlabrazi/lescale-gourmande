@@ -22,7 +22,7 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@nuxt/icon": "^1.15.0",
     "@nuxt/image": "^1.10.0",
-    "@nuxt/ui": "^3.2.0",
+    "@nuxt/ui": "^4.0.0",
     "@vueuse/motion": "^3.0.3",
     "nuxt": "^3.17.6",
     "vue": "^3.5.17",
