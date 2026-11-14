@@ -1,45 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": true
-  },
+  "extends": ["@nlabrazi/config-biome/configs/recommended"],
   "files": {
-    "ignoreUnknown": true,
-    "includes": ["**", "!.nuxt", "!.nuxt/**", "!.output", "!.output/**"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineWidth": 100
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
-  },
-  "overrides": [
-    {
-      "includes": ["**/*.vue"],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "noUnusedImports": "off",
-            "noUnusedVariables": "off"
-          }
-        }
-      }
-    }
-  ],
-  "assist": {
-    "enabled": true,
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
-    }
+    "includes": ["!**/*.css", "!**/*.svg"]
   }
 }

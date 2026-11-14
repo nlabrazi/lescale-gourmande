@@ -37,28 +37,28 @@
 <script setup>
 const creations = [
   {
-    title: "Mariage : Sarah & Romain",
-    text: "Cocktail dînatoire raffiné pour 100 invités à Paris. Buffet de desserts sur mesure, décoration florale et service attentionné.",
-    tag: "Mariage",
-    tagColor: "bg-pink-100 text-pink-700",
-    video: "https://videos.pexels.com/video-files/20203976/20203976-uhd_2560_1440_30fps.mp4",
-    alt: "Buffet de mariage",
+    title: 'Mariage : Sarah & Romain',
+    text: 'Cocktail dînatoire raffiné pour 100 invités à Paris. Buffet de desserts sur mesure, décoration florale et service attentionné.',
+    tag: 'Mariage',
+    tagColor: 'bg-pink-100 text-pink-700',
+    video: 'https://videos.pexels.com/video-files/20203976/20203976-uhd_2560_1440_30fps.mp4',
+    alt: 'Buffet de mariage',
   },
   {
-    title: "Anniversaire : Emma, 30 ans",
-    text: "Soirée méditerranéenne à domicile pour 20 amis : tapas, douceurs et gâteau personnalisé signés L’escale gourmande.",
-    tag: "Anniversaire",
-    tagColor: "bg-yellow-100 text-yellow-700",
-    video: "https://videos.pexels.com/video-files/6206264/6206264-hd_1920_1080_25fps.mp4",
+    title: 'Anniversaire : Emma, 30 ans',
+    text: 'Soirée méditerranéenne à domicile pour 20 amis : tapas, douceurs et gâteau personnalisé signés L’escale gourmande.',
+    tag: 'Anniversaire',
+    tagColor: 'bg-yellow-100 text-yellow-700',
+    video: 'https://videos.pexels.com/video-files/6206264/6206264-hd_1920_1080_25fps.mp4',
     alt: "Dîner d'anniversaire",
   },
   {
     title: "Déjeuner d'entreprise : Capgemini",
-    text: "Déjeuner convivial et healthy pour un séminaire d’équipe. Options végétariennes, jus frais, présentation élégante.",
-    tag: "Entreprise",
-    tagColor: "bg-blue-100 text-blue-700",
-    video: "https://videos.pexels.com/video-files/4170293/4170293-uhd_2732_1440_24fps.mp4",
+    text: 'Déjeuner convivial et healthy pour un séminaire d’équipe. Options végétariennes, jus frais, présentation élégante.',
+    tag: 'Entreprise',
+    tagColor: 'bg-blue-100 text-blue-700',
+    video: 'https://videos.pexels.com/video-files/4170293/4170293-uhd_2732_1440_24fps.mp4',
     alt: "Déjeuner d'entreprise",
   },
-];
+]
 </script>

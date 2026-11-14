@@ -44,17 +44,17 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useSiteLinks } from "@/composables/useSiteLinks";
+import { ref } from 'vue'
+import { useSiteLinks } from '@/composables/useSiteLinks'
 
-const isOpen = ref(false);
-const navLinks = useSiteLinks().filter((link) => link.showInNav);
+const isOpen = ref(false)
+const navLinks = useSiteLinks().filter((link) => link.showInNav)
 
 function toggleMenu() {
-  isOpen.value = !isOpen.value;
+  isOpen.value = !isOpen.value
 }
 function closeMenu() {
-  isOpen.value = false;
+  isOpen.value = false
 }
 </script>
 

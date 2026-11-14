@@ -87,53 +87,53 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive } from 'vue'
 
 const form = reactive({
-  name: "",
-  email: "",
-  phone: "",
-  eventType: "",
-  status: "",
-  guests: "",
-  theme: "",
+  name: '',
+  email: '',
+  phone: '',
+  eventType: '',
+  status: '',
+  guests: '',
+  theme: '',
   callback: false,
-  message: "",
-});
+  message: '',
+})
 
 const submitForm = async () => {
   try {
-    const res = await fetch("/api/send-quote", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const res = await fetch('/api/send-quote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
-    });
+    })
 
     if (!res.ok) {
-      alert("Erreur lors de l’envoi");
-      return;
+      alert('Erreur lors de l’envoi')
+      return
     }
 
-    const data = await res.json();
+    const data = await res.json()
     if (data.success) {
-      alert("Message envoyé avec succès");
+      alert('Message envoyé avec succès')
       // Reset du formulaire après succès (optionnel)
-      form.name = "";
-      form.email = "";
-      form.phone = "";
-      form.eventType = "";
-      form.status = "";
-      form.guests = "";
-      form.theme = "";
-      form.callback = false;
-      form.message = "";
+      form.name = ''
+      form.email = ''
+      form.phone = ''
+      form.eventType = ''
+      form.status = ''
+      form.guests = ''
+      form.theme = ''
+      form.callback = false
+      form.message = ''
     } else {
-      alert("Erreur lors de l’envoi");
+      alert('Erreur lors de l’envoi')
     }
   } catch {
-    alert("Erreur lors de l’envoi");
+    alert('Erreur lors de l’envoi')
   }
-};
+}
 </script>
 
 <style>

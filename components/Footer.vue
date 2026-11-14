@@ -70,7 +70,7 @@
 </template>
 
 <script setup>
-import { useSiteLinks } from "@/composables/useSiteLinks";
+import { useSiteLinks } from '@/composables/useSiteLinks'
 
-const footerLinks = useSiteLinks().filter((l) => l.showInFooter);
+const footerLinks = useSiteLinks().filter((l) => l.showInFooter)
 </script>
