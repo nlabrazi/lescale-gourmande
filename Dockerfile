@@ -1,15 +1,13 @@
-FROM node:20-alpine AS builder
+FROM node:22.23.3-alpine AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
-
 COPY . .
+RUN --mount=type=secret,id=npmrc,target=/root/.npmrc,required=true npm ci
 RUN npm run build
 
 
-FROM node:20-alpine AS runner
+FROM node:22.23.3-alpine AS runner
 
 WORKDIR /app
 
