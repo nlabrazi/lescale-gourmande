@@ -16,25 +16,25 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/vue-fontawesome": "^3.0.8",
-    "@nuxt/icon": "^1.15.0",
-    "@nuxt/image": "^1.10.0",
-    "@nuxt/ui": "^3.2.0",
+    "@fortawesome/fontawesome-svg-core": "^7.3.1",
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "@fortawesome/vue-fontawesome": "^3.3.3",
+    "@nuxt/icon": "^2.6.2",
+    "@nuxt/image": "^1.11.2",
+    "@nuxt/ui": "^4.12.0",
     "@vueuse/motion": "^3.0.3",
-    "nuxt": "^3.17.6",
-    "vue": "^3.5.17",
-    "vue-router": "^4.5.1"
+    "nuxt": "^3.21.11",
+    "vue": "^3.5.45",
+    "vue-router": "^4.6.5"
   },
   "devDependencies": {
     "@nlabrazi/config-biome": "^0.2.0",
     "@nlabrazi/config-playwright": "^0.1.0",
     "@nlabrazi/tsconfig": "^0.1.0",
-    "@nuxtjs/tailwindcss": "^7.0.0-beta.0",
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.11"
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5"
   }
 }
