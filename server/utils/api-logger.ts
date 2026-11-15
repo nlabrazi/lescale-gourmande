@@ -1,33 +1,33 @@
-import { getRequestURL, type H3Event } from "h3";
+import { getRequestURL, type H3Event } from 'h3'
 
-type LogLevel = "debug" | "info" | "warn" | "error";
-type LogMetadata = Record<string, boolean | number | string | null | undefined>;
+type LogLevel = 'debug' | 'info' | 'warn' | 'error'
+type LogMetadata = Record<string, boolean | number | string | null | undefined>
 
-const APP_NAME = "lescale-gourmande";
+const APP_NAME = 'lescale-gourmande'
 
 type LogInput = {
-  message: string;
-  statusCode?: number;
-  error?: unknown;
-  metadata?: LogMetadata;
-};
+  message: string
+  statusCode?: number
+  error?: unknown
+  metadata?: LogMetadata
+}
 
 function getErrorFields(error: unknown): LogMetadata {
   if (!error) {
-    return {};
+    return {}
   }
 
   if (error instanceof Error) {
     return {
       error: error.message,
       errorName: error.name,
-      stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
-    };
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
+    }
   }
 
   return {
     error: String(error),
-  };
+  }
 }
 
 function writeLog(level: LogLevel, event: H3Event, input: LogInput) {
@@ -41,22 +41,22 @@ function writeLog(level: LogLevel, event: H3Event, input: LogInput) {
     timestamp: new Date().toISOString(),
     ...input.metadata,
     ...getErrorFields(input.error),
-  };
-
-  const line = JSON.stringify(payload);
-
-  if (level === "error") {
-    console.error(line);
-    return;
   }
 
-  console.log(line);
+  const line = JSON.stringify(payload)
+
+  if (level === 'error') {
+    console.error(line)
+    return
+  }
+
+  console.log(line)
 }
 
 export function logInfo(event: H3Event, input: LogInput) {
-  writeLog("info", event, input);
+  writeLog('info', event, input)
 }
 
 export function logError(event: H3Event, input: LogInput) {
-  writeLog("error", event, input);
+  writeLog('error', event, input)
 }

@@ -40,65 +40,65 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
-const currentIndex = ref(0);
-const testimonialsPerPage = 3;
+const currentIndex = ref(0)
+const testimonialsPerPage = 3
 
 const testimonials = [
   {
-    name: "Julie D.",
-    comment: "Une expérience incroyable ! Tout était délicieux, raffiné, et le service impeccable.",
+    name: 'Julie D.',
+    comment: 'Une expérience incroyable ! Tout était délicieux, raffiné, et le service impeccable.',
     image:
-      "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: "Thomas G.",
-    comment: "L’escale gourmande a sublimé notre événement, invités conquis ! Merci au chef.",
+    name: 'Thomas G.',
+    comment: 'L’escale gourmande a sublimé notre événement, invités conquis ! Merci au chef.',
     image:
-      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: "Fatima K.",
-    comment: "Un service traiteur élégant, ponctuel, délicieux. Je recommande sans hésiter !",
+    name: 'Fatima K.',
+    comment: 'Un service traiteur élégant, ponctuel, délicieux. Je recommande sans hésiter !',
     image:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: "Léa M.",
-    comment: "Un sans faute du début à la fin. La présentation des plats est splendide.",
+    name: 'Léa M.',
+    comment: 'Un sans faute du début à la fin. La présentation des plats est splendide.',
     image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: "Olivier R.",
-    comment: "Réactivité, qualité, goût : une vraie signature culinaire pour notre mariage.",
+    name: 'Olivier R.',
+    comment: 'Réactivité, qualité, goût : une vraie signature culinaire pour notre mariage.',
     image:
-      "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=200&q=80',
   },
   {
-    name: "Sophie L.",
-    comment: "Nos collaborateurs ont été bluffés. Bravo à toute l’équipe de L’escale gourmande !",
+    name: 'Sophie L.',
+    comment: 'Nos collaborateurs ont été bluffés. Bravo à toute l’équipe de L’escale gourmande !',
     image:
-      "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=200&q=80",
+      'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=200&q=80',
   },
-];
+]
 
-const totalPages = computed(() => Math.ceil(testimonials.length / testimonialsPerPage));
+const totalPages = computed(() => Math.ceil(testimonials.length / testimonialsPerPage))
 
 const visibleTestimonials = computed(() => {
-  const start = currentIndex.value * testimonialsPerPage;
-  return testimonials.slice(start, start + testimonialsPerPage);
-});
+  const start = currentIndex.value * testimonialsPerPage
+  return testimonials.slice(start, start + testimonialsPerPage)
+})
 
-let interval;
+let interval
 onMounted(() => {
   interval = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % totalPages.value;
-  }, 5000);
-});
+    currentIndex.value = (currentIndex.value + 1) % totalPages.value
+  }, 5000)
+})
 
 onUnmounted(() => {
-  clearInterval(interval);
-});
+  clearInterval(interval)
+})
 </script>

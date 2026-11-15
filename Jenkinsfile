@@ -3,7 +3,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:20'
+            image 'node:22.23.3'
         }
     }
 
@@ -16,13 +16,13 @@ pipeline {
 
         stage('Install') {
             steps {
-                sh 'npm ci'
+                npmCi()
             }
         }
 
         stage('Check') {
             steps {
-                sh 'npm run biome:check'
+                sh 'npm run check'
             }
         }
 
